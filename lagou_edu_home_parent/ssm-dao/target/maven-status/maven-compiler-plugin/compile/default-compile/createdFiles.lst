@@ -1,0 +1,10 @@
+com\lagou\mapper\CourseContentMapper.class
+com\lagou\mapper\PromotionAdMapper.class
+com\lagou\mapper\TestMapper.class
+com\lagou\mapper\MenuMapper.class
+com\lagou\mapper\ResourceMapper.class
+com\lagou\mapper\PromotionSpaceMapper.class
+com\lagou\mapper\CourseMapper.class
+com\lagou\mapper\RoleMapper.class
+com\lagou\mapper\UserMapper.class
+com\lagou\mapper\ResourceCategoryMapper.class

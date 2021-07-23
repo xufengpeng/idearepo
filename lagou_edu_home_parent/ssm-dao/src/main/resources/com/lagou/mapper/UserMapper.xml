@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lagou.mapper.UserMapper">
+    <resultMap id="userMap" type="user">
+        <id property="id" column="id"></id>
+        <result property="name" column="name"></result>
+        <result property="portrait" column="portrait"></result>
+        <result property="phone" column="phone"></result>
+        <result property="password" column="password"></result>
+        <result property="reg_ip" column="reg_ip"></result>
+        <result property="account_non_expired" column="account_non_expired"></result>
+        <result property="credentials_non_expired" column="credentials_non_expired"></result>
+        <result property="account_non_locked" column="account_non_locked"></result>
+        <result property="status" column="status"></result>
+        <result property="is_del" column="is_del"></result>
+        <result property="create_time" column="create_time"></result>
+        <result property="update_time" column="update_time"></result>
+    </resultMap>
+    <select id="findAllUserByPage" parameterType="userVo" resultMap="userMap">
+        select * from user
+        <where>
+            <if test="true">
+                and is_del !=1
+            </if>
+            <if test="username!=null and username !=''">
+                and name=#{username}
+            </if>
+            <if test="startCreateTime!=null and endCreateTime!=null">
+                and create_time between #{startCreateTime} and #{endCreateTime}
+            </if>
+        </where>
+    </select>
+    <update id="updateUserStatus" parameterType="user">
+        update user set status=#{status},update_time=#{update_time}
+        where id=#{id}
+    </update>
+    <select id="login" parameterType="user" resultMap="userMap">
+        select * from user where phone=#{phone}
+    </select>
+
+    <!--public void deleteUserRoleContext(Integer userId);
+    public void saveUserRoleContext(User_Role_relation userRoleRelation);-->
+    <delete id="deleteUserRoleContext" parameterType="int">
+        delete from user_role_relation where user_id=#{userId}
+    </delete>
+    <insert id="saveUserRoleContext" parameterType="user_Role_relation">
+        insert into user_role_relation(user_id,role_id,created_time,updated_time,created_by,updated_by)
+        values(#{userId},#{roleId},#{createdTime},#{updatedTime},#{createdBy},#{updatedBy})
+    </insert>
+    <select id="findUserRelationRoleByUserId" parameterType="int" resultType="role">
+        select * from roles r inner join user_role_relation ur on r.id=ur.role_id
+        where ur.user_id=#{id}
+    </select>
+    <!--
+    public List<Menu> findParentMenuByRoleId(List<Integer> ids);
+    public List<Menu> findSubMenuByParentId(Integer pid);
+    public List<Resource> findResourceByRoleId(List<Integer> ids);
+    -->
+    <select id="findParentMenuByRoleId" parameterType="java.util.List" resultType="menu">
+        SELECT DISTINCT m.*
+        FROM roles r INNER JOIN role_menu_relation rm ON r.id = rm.role_id
+        INNER JOIN menu m ON rm.menu_id = m.id WHERE m.parent_id = -1 AND r.id IN
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    <select id="findSubMenuByParentId" parameterType="int" resultType="menu">
+        select * from menu where parent_id=#{pid}
+    </select>
+    <select id="findResourceByRoleId" parameterType="java.util.List" resultType="resource">
+        select DISTINCT r.*
+        from resource r inner join role_resource_relation rr on r.id = rr.resource_id
+        inner join roles rs on rs.id = rr.role_id where rr.role_id in
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+</mapper>
