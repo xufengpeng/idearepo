@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface TestMapper {
     public List<Test> findAllTest();
+    public void save();
     public void add();
     public void update();
 }
