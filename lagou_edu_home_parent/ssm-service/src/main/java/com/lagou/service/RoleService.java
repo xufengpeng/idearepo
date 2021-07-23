@@ -1,5 +1,6 @@
 package com.lagou.service;
 
+import com.lagou.domain.ResourceCategory;
 import com.lagou.domain.Role;
 import com.lagou.domain.RoleMenuVo;
 
@@ -12,4 +13,5 @@ public interface RoleService {
     public List<Integer> findMenuIdByRoleId(Integer roleId);
     public void roleMenuContext(RoleMenuVo roleMenuVo);
     public void deleteRole(Integer roleId);
+    public List<ResourceCategory> findResourceListByRoleId(Integer roleId);
 }

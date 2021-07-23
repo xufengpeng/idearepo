@@ -32,4 +32,31 @@
     <delete id="deleteRole" parameterType="int">
         delete from roles where id=#{id}
     </delete>
+
+    <resultMap id="roleResourceMap" type="com.lagou.domain.ResourceCategory">
+    <id property="id" column="id"></id>
+    <result property="name" column="name"></result>
+        <result property="sort" column="sort"></result>
+        <result property="createdTime" column="created_time"></result>
+        <result property="updatedTime" column="updated_time"></result>
+        <result property="createdBy" column="created_by"></result>
+        <result property="updatedBy" column="updated_by"></result>
+        <collection property="resourceList" ofType="com.lagou.domain.Resource">
+            <id property="id" column="rid"></id>
+            <result property="name" column="rname"></result>
+            <result property="url" column="url"></result>
+            <result property="categoryId" column="category_id"></result>
+            <result property="description" column="description"></result>
+            <result property="createdTime" column="rcreated_time"></result>
+            <result property="updatedTime" column="rupdated_time"></result>
+            <result property="createdBy" column="rcreated_by"></result>
+            <result property="updatedBy" column="rupdated_by"></result>
+        </collection>
+    </resultMap>
+    <select id="findResourceListByRoleId" parameterType="int" resultMap="roleResourceMap">
+    SELECT rc.*,r.id rid,r.name rname,r.url,r.category_id,r.description,r.created_time rcreated_time,r.updated_time rupdated_time,r.created_by rcreated_by,r.updated_by rupdated_by
+    FROM role_resource_relation rrr INNER JOIN resource r ON r.id=rrr.resource_id
+    INNER JOIN resource_category rc ON r.category_id=rc.id
+    WHERE rrr.role_id=#{roleId}
+    </select>
 </mapper>

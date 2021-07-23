@@ -1,5 +1,6 @@
 package com.lagou.service.impl;
 
+import com.lagou.domain.ResourceCategory;
 import com.lagou.domain.Role;
 import com.lagou.domain.RoleMenuVo;
 import com.lagou.domain.Role_menu_relation;
@@ -61,5 +62,11 @@ public class RoleServiceImpl implements RoleService {
     public void deleteRole(Integer roleId) {
         roleMapper.deleteRoleMenuContext(roleId);
         roleMapper.deleteRole(roleId);
+    }
+
+    @Override
+    public List<ResourceCategory> findResourceListByRoleId(Integer roleId) {
+        List<ResourceCategory> resourceListByRoleId = roleMapper.findResourceListByRoleId(roleId);
+        return resourceListByRoleId;
     }
 }
