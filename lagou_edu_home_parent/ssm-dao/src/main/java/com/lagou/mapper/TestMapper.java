@@ -10,4 +10,5 @@ public interface TestMapper {
     public void add();
     public void update();
     public void dev();
+    public void success();
 }
