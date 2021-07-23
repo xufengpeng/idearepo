@@ -59,7 +59,7 @@
     INNER JOIN resource_category rc ON r.category_id=rc.id
     WHERE rrr.role_id=#{roleId}
     </select>
-    
+
     <delete id="deleteRoleResourceContext" parameterType="int">
         delete from role_resource_relation
         where role_id=#{roleId}
