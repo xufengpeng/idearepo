@@ -60,6 +60,5 @@ public class RoleController {
     public ResponseResult findResourceListByRoleId(Integer roleId){
         List<ResourceCategory> resourceListByRoleId = roleService.findResourceListByRoleId(roleId);
         return new ResponseResult(true,200,"查询角色相关资源信息成功",resourceListByRoleId);
-
     }
 }
