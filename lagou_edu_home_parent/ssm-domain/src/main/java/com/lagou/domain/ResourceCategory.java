@@ -3,6 +3,7 @@ package com.lagou.domain;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
+import java.util.List;
 
 public class ResourceCategory {
 
@@ -13,6 +14,7 @@ public class ResourceCategory {
     private Date updatedTime;
     private String createdBy;
     private String updatedBy;
+
 
     public Integer getId() {
         return id;
