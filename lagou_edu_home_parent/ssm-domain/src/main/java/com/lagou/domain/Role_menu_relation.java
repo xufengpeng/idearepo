@@ -1,5 +1,7 @@
 package com.lagou.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Role_menu_relation {
@@ -35,7 +37,7 @@ public class Role_menu_relation {
     public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Date getCreatedTime() {
         return createdTime;
     }
@@ -43,7 +45,7 @@ public class Role_menu_relation {
     public void setCreatedTime(Date createdTime) {
         this.createdTime = createdTime;
     }
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Date getUpdatedTime() {
         return updatedTime;
     }

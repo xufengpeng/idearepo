@@ -3,6 +3,7 @@ package com.lagou.service;
 import com.lagou.domain.ResourceCategory;
 import com.lagou.domain.Role;
 import com.lagou.domain.RoleMenuVo;
+import com.lagou.domain.RoleResourceVo;
 
 import java.util.List;
 
@@ -14,4 +15,5 @@ public interface RoleService {
     public void roleMenuContext(RoleMenuVo roleMenuVo);
     public void deleteRole(Integer roleId);
     public List<ResourceCategory> findResourceListByRoleId(Integer roleId);
+    public void roleResourceContext(RoleResourceVo roleResourceVo);
 }

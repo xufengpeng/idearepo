@@ -59,4 +59,16 @@
     INNER JOIN resource_category rc ON r.category_id=rc.id
     WHERE rrr.role_id=#{roleId}
     </select>
+    <!--
+    public void deleteRoleResourceContext(Integer roleId);
+    public void saveRoleResourceContext(Role_menu_relation roleMenuRelation);
+    -->
+    <delete id="deleteRoleResourceContext" parameterType="int">
+        delete from role_resource_relation
+        where role_id=#{roleId}
+    </delete>
+    <insert id="saveRoleResourceContext" parameterType="role_resource_relation">
+        insert into role_resource_relation(resource_id,role_id,created_time,updated_time,created_by,updated_by)
+        values(#{resourceId},#{roleId},#{createdTime},#{updatedTime},#{createdBy},#{updatedBy})
+    </insert>
 </mapper>
