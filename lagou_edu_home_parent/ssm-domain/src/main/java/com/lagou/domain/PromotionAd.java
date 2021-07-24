@@ -22,10 +22,14 @@ public class PromotionAd {
     // 链接一
     private String link;
     // 开始时间
-
+    //@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     private Date startTime;
     // 结束时间
+    //@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     private Date endTime;
+
     private Date createTime;
     private Date updateTime;
     private Integer status;
@@ -98,7 +102,7 @@ public class PromotionAd {
         this.link = link;
     }
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Date getStartTime() {
         return startTime;
@@ -109,7 +113,7 @@ public class PromotionAd {
         this.startTime = startTime;
     }
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Date getEndTime() {
         return endTime;
@@ -120,7 +124,7 @@ public class PromotionAd {
         this.endTime = endTime;
     }
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Date getCreateTime() {
         return createTime;
@@ -130,7 +134,7 @@ public class PromotionAd {
         this.createTime = createTime;
     }
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Date getUpdateTime() {
         return updateTime;
