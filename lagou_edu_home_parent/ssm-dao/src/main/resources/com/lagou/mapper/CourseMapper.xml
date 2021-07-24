@@ -111,4 +111,5 @@ VALUES(#{courseId},#{teacherName},#{position},#{description},#{createTime},#{upd
         update course set status=#{status},update_time=#{updateTime}
         where id=#{id}
     </update>
+
 </mapper>

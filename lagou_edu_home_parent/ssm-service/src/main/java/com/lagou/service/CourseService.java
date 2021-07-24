@@ -13,4 +13,5 @@ public interface CourseService {
     public CourseTeacherVo findCourseById(Integer id);
     public void updateCourseOrTeacher(CourseTeacherVo courseTeacherVo) throws InvocationTargetException, IllegalAccessException;
     public void updateCourseStatus(Integer id,Integer status);
+
 }

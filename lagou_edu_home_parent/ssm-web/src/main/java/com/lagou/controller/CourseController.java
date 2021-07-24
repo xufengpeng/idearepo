@@ -25,6 +25,8 @@ import java.util.Map;
 public class CourseController {
     @Autowired
     private CourseService courseService;
+
+
     @RequestMapping("/findCourseByCondition")
     public ResponseResult findCourseByCondition(@RequestBody CourseVo courseVo){
         List<Course> courses = courseService.findCourseByCondition(courseVo);

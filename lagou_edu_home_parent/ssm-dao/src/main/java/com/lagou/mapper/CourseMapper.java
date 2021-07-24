@@ -15,4 +15,5 @@ public interface CourseMapper {
     public void updateCourse(Course course);
     public void updateTeacher(Teacher teacher);
     public void updateCourseStatus(Course course);
+
 }

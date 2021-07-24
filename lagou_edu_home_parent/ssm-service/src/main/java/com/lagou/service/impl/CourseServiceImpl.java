@@ -69,4 +69,6 @@ public class CourseServiceImpl implements CourseService {
         course.setUpdateTime(new Date());
         courseMapper.updateCourseStatus(course);
     }
+
+
 }
