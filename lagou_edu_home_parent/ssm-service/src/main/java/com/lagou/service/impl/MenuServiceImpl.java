@@ -1,5 +1,7 @@
 package com.lagou.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lagou.domain.Menu;
 import com.lagou.mapper.MenuMapper;
 import com.lagou.service.MenuService;
@@ -19,8 +21,11 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public List<Menu> findAllMenu() {
-        return menuMapper.findAllMenu();
+    public PageInfo<Menu> findAllMenu(Integer currentPage,Integer pageSize) {
+        PageHelper.startPage(currentPage,pageSize);
+        List<Menu> allMenu = menuMapper.findAllMenu();
+        PageInfo<Menu> pageInfo = new PageInfo<>(allMenu);
+        return pageInfo;
     }
 
     @Override

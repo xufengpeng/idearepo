@@ -8,7 +8,13 @@ import java.util.List;
 public class UserVo {
     private Integer currentPage;
     private Integer pageSize;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date startCreateTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date endCreateTime;
     private String username;
+
     private Integer userId;
     private List<Integer> roleIdList;
 
@@ -28,10 +34,7 @@ public class UserVo {
         this.roleIdList = roleIdList;
     }
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date startCreateTime;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date endCreateTime;
+
 
     public Integer getCurrentPage() {
         return currentPage;

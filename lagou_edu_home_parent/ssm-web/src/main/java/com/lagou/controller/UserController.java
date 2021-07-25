@@ -31,9 +31,9 @@ public class UserController {
     @RequestMapping("/updateUserStatus")
     public ResponseResult updateUserStatus(Integer id,String status){
         if("ENABLE".equalsIgnoreCase(status)){
-            status="ENABLE";
-        }else {
             status="DISENABLE";
+        }else {
+            status="ENABLE";
         }
         userService.updateUserStatus(id,status);
         Map<String,String> map=new HashMap<>();

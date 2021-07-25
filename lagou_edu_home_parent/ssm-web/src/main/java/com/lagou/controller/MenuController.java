@@ -1,5 +1,6 @@
 package com.lagou.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.lagou.domain.Menu;
 import com.lagou.domain.ResponseResult;
 import com.lagou.service.MenuService;
@@ -18,9 +19,9 @@ public class MenuController {
     @Autowired
     private MenuService menuService;
     @RequestMapping("/findAllMenu")
-    public ResponseResult findAllMenu(){
-        List<Menu> allMenu = menuService.findAllMenu();
-        return new ResponseResult(true,200,"查询所有菜单成功",allMenu);
+    public ResponseResult findAllMenu(Integer currentPage,Integer pageSize){
+        PageInfo<Menu> pageInfo = menuService.findAllMenu(currentPage,pageSize);
+        return new ResponseResult(true,200,"查询所有菜单成功",pageInfo);
     }
     @RequestMapping("/findMenuInfoById")
     public ResponseResult findMenuInfoById(Integer id){
