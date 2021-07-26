@@ -15,4 +15,38 @@
             </if>
         </where>
     </select>
+    <!--
+    public void saveResource(Resource resource);
+    public void updateResource(Resource resource);
+    -->
+    <insert id="saveResource" parameterType="resource">
+insert into resource(name,url,category_id,description,created_time,updated_time,created_by,updated_by)
+values(#{name},#{url},#{categoryId},#{description},#{createdTime},#{updatedTime},#{createdBy},#{updatedBy})
+    </insert>
+    <update id="updateResource" parameterType="resource">
+        update resource
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name!=null and name!=''">
+                name=#{name},
+            </if>
+            <if test="url!=null and url!=''">
+                url=#{url},
+            </if>
+            <if test="categoryId!=null">
+                category_id=#{categoryId},
+            </if>
+            <if test="description!=null and description!=''">
+                description=#{description},
+            </if>
+            <if test="updatedTime!=null">
+                updated_time=#{updatedTime},
+            </if>
+            <if test="updatedBy!=null and updatedBy!=''">
+                updated_by=#{updatedBy},
+            </if>
+        </trim>
+        <where>
+            id=#{id}
+        </where>
+    </update>
 </mapper>

@@ -20,4 +20,15 @@ public class ResourceController {
         PageInfo<Resource> resourcePageInfo = resourceService.findAllResourceByPage(resourceVo);
         return new ResponseResult(true,200,"查询资源分页成功",resourcePageInfo);
     }
+    @RequestMapping("/saveOrUpdateResource")
+    public ResponseResult saveOrUpdateResource(@RequestBody Resource resource){
+        if(resource.getId()==null){
+            resourceService.saveResource(resource);
+            return new ResponseResult(true,200,"新增资源信息成功",null);
+        }
+        else {
+            resourceService.updateResource(resource);
+            return new ResponseResult(true,200,"更新资源信息成功",null);
+        }
+    }
 }

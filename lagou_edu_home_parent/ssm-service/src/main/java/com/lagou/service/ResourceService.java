@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface ResourceService {
     public PageInfo<Resource> findAllResourceByPage(ResourceVo resourceVo);
+    public void saveResource(Resource resource);
+    public void updateResource(Resource resource);
 }
