@@ -35,6 +35,7 @@ public class UserController {
         }else {
             status="ENABLE";
         }
+
         userService.updateUserStatus(id,status);
         Map<String,String> map=new HashMap<>();
         map.put("status",status);

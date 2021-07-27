@@ -5,6 +5,7 @@ D:\workspace\lagou_edu_home_parent\ssm-domain\src\main\java\com\lagou\domain\Res
 D:\workspace\lagou_edu_home_parent\ssm-domain\src\main\java\com\lagou\domain\Role_menu_relation.java
 D:\workspace\lagou_edu_home_parent\ssm-domain\src\main\java\com\lagou\domain\CourseSection.java
 D:\workspace\lagou_edu_home_parent\ssm-domain\src\main\java\com\lagou\domain\CourseLesson.java
+D:\workspace\lagou_edu_home_parent\ssm-domain\src\main\java\com\lagou\domain\RoleResourceVo.java
 D:\workspace\lagou_edu_home_parent\ssm-domain\src\main\java\com\lagou\domain\Menu.java
 D:\workspace\lagou_edu_home_parent\ssm-domain\src\main\java\com\lagou\domain\ResourceVo.java
 D:\workspace\lagou_edu_home_parent\ssm-domain\src\main\java\com\lagou\domain\RoleMenuVo.java
@@ -16,6 +17,7 @@ D:\workspace\lagou_edu_home_parent\ssm-domain\src\main\java\com\lagou\domain\Res
 D:\workspace\lagou_edu_home_parent\ssm-domain\src\main\java\com\lagou\domain\User_Role_relation.java
 D:\workspace\lagou_edu_home_parent\ssm-domain\src\main\java\com\lagou\domain\Course.java
 D:\workspace\lagou_edu_home_parent\ssm-domain\src\main\java\com\lagou\domain\Test.java
+D:\workspace\lagou_edu_home_parent\ssm-domain\src\main\java\com\lagou\domain\Role_resource_relation.java
 D:\workspace\lagou_edu_home_parent\ssm-domain\src\main\java\com\lagou\domain\ResourceCategory.java
 D:\workspace\lagou_edu_home_parent\ssm-domain\src\main\java\com\lagou\domain\CourseMedia.java
 D:\workspace\lagou_edu_home_parent\ssm-domain\src\main\java\com\lagou\domain\User.java
