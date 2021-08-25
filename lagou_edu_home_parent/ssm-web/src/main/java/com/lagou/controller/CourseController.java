@@ -25,6 +25,7 @@ import java.util.Map;
 public class CourseController {
     @Autowired
     private CourseService courseService;
+    //对controller进行了修改
 
 
     @RequestMapping("/findCourseByCondition")
